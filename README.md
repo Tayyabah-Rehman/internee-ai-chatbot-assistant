@@ -98,10 +98,8 @@ intern-chatbot/
 
 
 ### Customization
-```
-```
-### Add more FAQs
 
+### Add more FAQs
 Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
 ```json
 {
