@@ -1,11 +1,11 @@
 # Innie — Chatbot for Intern Queries
-### Internee.pk AI Assistant | Built with Flask + Groq/OpenAI
+### **Internee.pk AI Assistant | Built with Flask + Groq/OpenAI**
 
 ---
-Innie is an AI-powered chatbot assistant built for Internee.pk interns, providing instant 24/7 support for tasks, certificates, policies, and deadlines. Features include user authentication, conversation history, voice input, file attachments, and an admin analytics dashboard. Powered by Flask, Groq API (LLaMA 3.3 70B), and SQLite.
+Innie is an AI-powered chatbot assistant built for Internee.pk interns, providing instant 24/7 support for tasks, certificates, policies, and deadlines. Features include user authentication, conversation history with search, and an admin analytics dashboard. Powered by Flask, Groq API (LLaMA 3.3 70B), and SQLite.
 
 ---
-### Login Page
+### **Login Page**
 ![Login Page](ui_screenshots/01_login.png)
 
 ---
@@ -37,15 +37,16 @@ Innie is an AI-powered chatbot assistant built for Internee.pk interns, providin
 - **Message Feedback** — 👍 / 👎 on any bot response
 - **Admin Usage Analytics Dashboard** — `/dashboard`, restricted to admin accounts (the first person to sign up becomes admin automatically). Shows total conversations, registered users, satisfaction %, most-asked keywords, a daily message volume chart, and a recent-messages feed.
 
+---
 
 ## 🚀 Setup Instructions
 
-### Step 1: Install Python dependencies
+### **Step 1: Install Python dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 2: Add your API key
+### **Step 2: Add your API key**
 ```bash
 # Copy the example file
 cp .env.example .env
@@ -57,7 +58,7 @@ cp .env.example .env
 Get a free Groq key at: https://console.groq.com
 Get an OpenAI key at: https://platform.openai.com/api-keys
 
-### Step 3: Run the app
+### **Step 3: Run the app**
 ```bash
 python app.py
 ```
@@ -65,7 +66,7 @@ This auto-creates `data/users.db` on first run.
 
 > ⚠️ If you're upgrading from an older version of this project and already have a `data/users.db` file, **delete it before the first run** — the database schema has changed (added `is_admin`, conversations, and messages tables) and Flask-SQLAlchemy won't auto-migrate an existing file. Deleting it means you'll need to sign up again, but it avoids `OperationalError: no such column` errors.
 
-### Step 4: Open in browser
+### **Step 4: Open in browser**
 ```
 http://localhost:5000
 ```
@@ -73,48 +74,48 @@ Sign up for an account — the **first account created automatically becomes adm
 
 ---
 
-### Chat with Typing Indicator
+### **Chat with Typing Indicator**
 ![Chat with Typing Indicator](ui_screenshots/04_chat_typing_indicator.png)
 
+---
 
-```
-```
-### Project Structure
+### **Project Structure**
 ```
 intern-chatbot/
-├── app.py                  # Flask server, auth, chat, analytics, conversation APIs
-├── requirements.txt        # Python dependencies
-├── .env.example             # Environment variable template
-├── .env                     # Your actual secrets (create this)
+├── app.py                   # Flask server, auth, chat, analytics, conversation APIs
+├── requirements.txt         # Python dependencies
+├── .env.example              # Environment variable template
+├── .env                      # Your actual secrets (not committed)
 ├── data/
-│   ├── knowledge_base.json # Internee.pk FAQs and policies
-│   ├── users.db             # SQLite: users, conversations, messages (auto-created)
-│   ├── conversations.json  # Legacy flat log, feeds the analytics dashboard
-│   └── feedback.json       # Thumbs up/down feedback log
+│   ├── knowledge_base.json  # Internee.pk FAQs and policies
+│   ├── users.db              # SQLite: users, conversations, messages (auto-created)
+│   ├── conversations.json   # Legacy flat log, feeds the analytics dashboard
+│   └── feedback.json        # Thumbs up/down feedback log
 └── templates/
-    ├── index.html          # Chatbot UI (auth + chat + history sidebar)
-    └── dashboard.html      # Admin analytics dashboard
+    ├── index.html           # Chatbot UI (auth + chat + history sidebar)
+    └── dashboard.html       # Admin analytics dashboard
 ```
 
+---
 
-### Customization
+## ⚙️ Customization
 
-### Add more FAQs
+### **Add more FAQs**
 Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
 ```json
 {
   "question": "Your new question?",
   "answer": "Your answer here."
 }
-
 ```
-### Change the AI model
+
+### **Change the AI model**
 In `app.py`, find `model="llama-3.3-70b-versatile"` (Groq) or `model="gpt-3.5-turbo"` (OpenAI) and swap for a different model.
 
-### Update policies
+### **Update policies**
 Edit the `"policies"` section in `knowledge_base.json`.
 
-### Make another user an admin
+### **Make another user an admin**
 Currently only the first signup is auto-promoted. To promote another account manually:
 ```bash
 python -c "from app import app, db, User; 
@@ -124,10 +125,14 @@ with app.app_context():
     db.session.commit()"
 ```
 
-### Admin Dashboard
+---
+
+### **Admin Dashboard**
 ![Admin Dashboard](ui_screenshots/11_admin_dashboard.png)
 
-##  Tech Stack
+---
+
+## 🛠️ Tech Stack
 
 | Tool | Purpose |
 |------|---------|
