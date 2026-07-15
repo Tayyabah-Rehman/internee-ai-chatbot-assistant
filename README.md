@@ -96,11 +96,12 @@ intern-chatbot/
     └── dashboard.html      # Admin analytics dashboard
 ```
 
----
 
-Customization
-
+### Customization
+```
+```
 ### Add more FAQs
+
 Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
 ```json
 {
@@ -108,6 +109,7 @@ Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
   "answer": "Your answer here."
 }
 
+```
 ### Change the AI model
 In `app.py`, find `model="llama-3.3-70b-versatile"` (Groq) or `model="gpt-3.5-turbo"` (OpenAI) and swap for a different model.
 
@@ -123,11 +125,14 @@ with app.app_context():
     u.is_admin = True
     db.session.commit()"
 ```
+
 ### Admin Dashboard
 ![Admin Dashboard](ui_screenshots/11_admin_dashboard.png)
----
 
+```
+```
 ##  Tech Stack
+
 | Tool | Purpose |
 |------|---------|
 | Flask | Python web framework |
