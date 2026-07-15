@@ -1,4 +1,4 @@
-# 🤖 Innie — Chatbot for Intern Queries
+# Innie — Chatbot for Intern Queries
 ### Internee.pk AI Assistant | Built with Flask + Groq/OpenAI
 
 ---
@@ -29,12 +29,6 @@
 **Feedback & analytics**
 - **Message Feedback** — 👍 / 👎 on any bot response
 - **Admin Usage Analytics Dashboard** — `/dashboard`, restricted to admin accounts (the first person to sign up becomes admin automatically). Shows total conversations, registered users, satisfaction %, most-asked keywords, a daily message volume chart, and a recent-messages feed.
-
----
-
-## 🚧 Not Implemented
-
-- **Notifications / Reminders** — Not started (would require a background scheduler for deadline alerts, etc.)
 
 ---
 
@@ -133,25 +127,6 @@ with app.app_context():
 | Vanilla JS | Frontend chat interface |
 | HTML/CSS | UI design |
 | JSON | Knowledge base + legacy log storage |
-
----
-
-## ❓ Troubleshooting
-
-**"No API key configured"**
-→ Make sure your `.env` file exists and has `GROQ_API_KEY=gsk-...` or `OPENAI_API_KEY=sk-...`
-
-**`sqlalchemy.exc.OperationalError: no such column: user.is_admin`** (or similar)
-→ You have an old `data/users.db` from before the schema changed. Stop the server, delete `data/users.db`, and restart — it will be recreated automatically. You'll need to sign up again.
-
-**401 errors on chat / feedback**
-→ Your session expired or the account no longer exists. Log out and log back in.
-
-**"quota exceeded" / rate limit error**
-→ Check your provider's billing/usage dashboard. The app automatically falls back to the local FAQ knowledge base when this happens.
-
-**Port already in use**
-→ Run with a different port: `python app.py --port 5001`
 
 ---
 
