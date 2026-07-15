@@ -1,0 +1,145 @@
+# ── Environment & Secrets ──
+.env
+.env.local
+.env.*.local
+
+# ── Virtual Environment ──
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Python Cache ──
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyzw
+*.py[co]
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ── Database (REAL USER DATA — NEVER COMMIT) ──
+data/users.db
+data/*.db
+data/conversations.json
+data/feedback.json
+data/*.sqlite
+data/*.sqlite3
+
+# ── IDE / Editor ──
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.bsb
+.nyc_output
+.envrc
+
+# ── OS Files ──
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+
+# ── Logs ──
+flask.log
+*.log
+logs/
+*.log
+
+# ── Build / Dist ──
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# ── Static Assets (Optional) ──
+static/uploads/
+static/temp/
+
+# ── Environment Variables Backup ──
+*.env.backup
+*.env.old
+
+# ── Node / Package Managers (if any) ──
+node_modules/
+package-lock.json
+yarn.lock
+
+# ── Coverage Reports ──
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ── PyCharm ──
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ── Jupyter Notebooks ──
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Windows ──
+$RECYCLE.BIN/
+*.lnk
+
+# ── Mac ──
+.AppleDouble
+.LSOverride
+._*
+
+# ── Linux ──
+*.pid
+*.seed
+*.pid.lock
+
+# ── Flask / Server ──
+instance/
+web.config
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ── Testing ──
+*.test
+*.spec
+test_*.py
+*_test.py
+
+# ── Temporary Files ──
+tmp/
+temp/
+*.bak
+*.backup
+*.old
+
+# ── Docker (optional) ──
+*.dockerignore
+Dockerfile.dev
+
+# ── Secrets Manager ──
+*.secret
+*.key
+*.pem
+*.crt
+*.csr
+*.key
+
+

@@ -1,0 +1,96 @@
+{
+  "faqs": [
+    {
+      "question": "What is Internee.pk?",
+      "answer": "Internee.pk is Pakistan's leading virtual internship platform that provides students and fresh graduates with hands-on industry experience through remote internships across various domains including Web Development, AI/ML, Graphic Design, Digital Marketing, Data Science, and more."
+    },
+    {
+      "question": "How do I apply for an internship?",
+      "answer": "To apply: 1) Create your profile on Internee.pk, 2) Browse available internship programs, 3) Click 'Apply Now' on your preferred program, 4) Complete the application form, 5) Wait for confirmation email. Applications are reviewed within 2-3 business days."
+    },
+    {
+      "question": "Is the internship paid or unpaid?",
+      "answer": "Internee.pk offers both paid and unpaid internships depending on the program. Most virtual internships are unpaid but come with a certificate of completion, LinkedIn recommendation, and real project experience. Some premium programs may include stipends."
+    },
+    {
+      "question": "How long is the internship duration?",
+      "answer": "Internship programs at Internee.pk typically run for 1 month, 2 months, or 3 months depending on the program. The most common duration is 4-8 weeks. You can check the specific duration on each program's detail page."
+    },
+    {
+      "question": "What certificate will I receive?",
+      "answer": "Upon successful completion you receive: 1) A digital Certificate of Completion, 2) A LinkedIn recommendation from the program coordinator, 3) An experience letter, 4) A portfolio-worthy project. Certificates are issued within 3-5 working days after completion."
+    },
+    {
+      "question": "How many hours per week do I need to work?",
+      "answer": "Most programs require 2-4 hours per day, 5 days a week (Monday to Friday). The work is flexible and remote, so you can manage your schedule. Weekly tasks are assigned every Monday and must be submitted by Friday."
+    },
+    {
+      "question": "What are the task submission guidelines?",
+      "answer": "Task Submission Guidelines: 1) Submit all tasks before the Friday 11:59 PM deadline, 2) Use the portal's submission form — do not email tasks, 3) Include your intern ID in every submission, 4) Submit work in the required format (PDF, ZIP, GitHub link, etc.), 5) Late submissions may result in task rejection."
+    },
+    {
+      "question": "How do I submit my weekly tasks?",
+      "answer": "To submit tasks: 1) Log in to your Internee.pk dashboard, 2) Go to 'My Internship' > 'Task Submission', 3) Select the current week's task, 4) Upload your work file or paste your GitHub/drive link, 5) Click 'Submit'. You will receive a confirmation email."
+    },
+    {
+      "question": "What happens if I miss a deadline?",
+      "answer": "Missing deadlines affects your performance score. If you miss more than 2 consecutive task submissions, your internship may be terminated. If you have a valid reason (medical, emergency), contact your coordinator at least 24 hours before the deadline for an extension."
+    },
+    {
+      "question": "How do I contact my coordinator?",
+      "answer": "You can reach your program coordinator through: 1) The messaging portal on your dashboard, 2) Email: support@internee.pk, 3) WhatsApp group (link shared in your welcome email). Response time is typically within 24 working hours."
+    },
+    {
+      "question": "What tools and software do I need?",
+      "answer": "Required tools depend on your program: Web Dev: VS Code, Git, Node.js. AI/ML: Python, Jupyter Notebook, Google Colab. Design: Figma, Canva. All tools listed are free to use. A stable internet connection is required for all programs."
+    },
+    {
+      "question": "How is my performance evaluated?",
+      "answer": "Performance is evaluated on: 1) Task completion rate (40%), 2) Quality of submitted work (30%), 3) Timeliness of submissions (20%), 4) Communication and professionalism (10%). You need a minimum score of 70% to receive your completion certificate."
+    },
+    {
+      "question": "Can I do multiple internships simultaneously?",
+      "answer": "You may enroll in a maximum of 2 programs simultaneously, provided they are in different domains and you can meet all deadlines. Enrolling in conflicting programs in the same domain is not recommended as it may affect quality."
+    },
+    {
+      "question": "What is the refund policy?",
+      "answer": "If you paid a registration fee: refund requests within 24 hours of registration are fully honored. After 24 hours but before starting tasks, a 50% refund applies. No refunds after tasks have begun. Contact billing@internee.pk for refund requests."
+    },
+    {
+      "question": "How do I get a LinkedIn recommendation?",
+      "answer": "LinkedIn recommendations are provided automatically upon successful completion with a score of 75% or above. The recommendation is sent to your registered LinkedIn profile within 5-7 working days of certificate issuance."
+    },
+    {
+      "question": "Is there a community or forum for interns?",
+      "answer": "Yes! Internee.pk has an active community: 1) WhatsApp group for your batch (link in welcome email), 2) Discord server: discord.gg/interneepk, 3) LinkedIn group for alumni networking. We encourage collaboration and peer learning."
+    },
+    {
+      "question": "What domains are available at Internee.pk?",
+      "answer": "Available internship domains include: Web Development (Frontend/Backend/Full Stack), AI & Machine Learning, Data Science, Graphic Design, Digital Marketing, Content Writing, Mobile App Development (Android/Flutter), Cybersecurity, and Business Development."
+    },
+    {
+      "question": "Can I get a job through Internee.pk?",
+      "answer": "Yes! Top performers are often recommended for job opportunities with Internee.pk's partner companies. Maintain a high performance score, build strong projects, and stay active in the alumni network. We also share job openings in the community."
+    },
+    {
+      "question": "How do I reset my dashboard password?",
+      "answer": "To reset your password: 1) Go to internee.pk/login, 2) Click 'Forgot Password', 3) Enter your registered email, 4) Check your inbox for a reset link (check spam too), 5) Set a new password. If issues persist, email support@internee.pk."
+    },
+    {
+      "question": "What should I do on my first day?",
+      "answer": "First day checklist: 1) Read your welcome email completely, 2) Join the WhatsApp/Discord group, 3) Log in to your dashboard and complete your profile, 4) Read the program guidelines PDF, 5) Introduce yourself in the community, 6) Check Week 1 tasks and start planning."
+    }
+  ],
+  "policies": {
+    "code_of_conduct": "All interns must maintain professional behavior, respect peers and coordinators, avoid plagiarism, keep confidential information private, and represent Internee.pk positively online.",
+    "attendance": "Attendance is tracked via task submissions. Submitting tasks on time counts as attendance. Interns with less than 60% task completion will not receive certificates.",
+    "plagiarism": "Any plagiarized work will result in immediate task rejection. Repeated plagiarism leads to internship termination without certificate. All submitted work must be original.",
+    "communication": "Professional communication is required at all times. Respond to coordinator messages within 24 hours. Use respectful language in all community channels."
+  },
+  "contact": {
+    "general": "support@internee.pk",
+    "billing": "billing@internee.pk",
+    "technical": "tech@internee.pk",
+    "website": "https://internee.pk"
+  }
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Analytics — Innie Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%;font-size:16px}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#F7F6F3;
+  color:#18181B;
+  min-height:100%;
+  -webkit-font-smoothing:antialiased;
+}
+:root{
+  --bg:#F7F6F3;
+  --surface:#FFFFFF;
+  --navy:#1A1A2E;
+  --indigo:#6366F1;
+  --indigo-light:#EEF0FF;
+  --indigo-mid:#C7D2FE;
+  --text:#18181B;
+  --text-muted:#71717A;
+  --text-subtle:#A1A1AA;
+  --border:#E4E2DE;
+  --border-light:#F0EFEC;
+  --green:#16A34A;
+  --red:#DC2626;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+  --radius:12px;
+  --radius-lg:18px;
+}
+
+.wrap{max-width:1080px;margin:0 auto;padding:32px 24px 64px}
+
+/* Header */
+.dash-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:12px;
+}
+.dash-title-group{display:flex;align-items:center;gap:12px}
+.dash-icon{
+  width:38px;height:38px;background:var(--navy);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.dash-title h1{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.dash-title p{font-size:13px;color:var(--text-muted);margin-top:2px}
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;font-size:13px;font-weight:500;color:var(--text-muted);
+  text-decoration:none;transition:all .12s;
+}
+.back-link:hover{background:var(--border-light);color:var(--text)}
+
+/* KPI cards */
+.kpi-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;margin-bottom:28px;
+}
+.kpi-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:var(--shadow-sm);
+}
+.kpi-label{font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.kpi-value{font-size:28px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.kpi-sub{font-size:12px;color:var(--text-subtle);margin-top:4px}
+.kpi-value.green{color:var(--green)}
+.kpi-value.red{color:var(--red)}
+
+/* Panels */
+.panel-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px;
+}
+@media(max-width:800px){.panel-grid{grid-template-columns:1fr}}
+
+.panel{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:20px;box-shadow:var(--shadow-sm);
+}
+.panel h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;letter-spacing:-.01em}
+.panel-empty{font-size:13px;color:var(--text-subtle);text-align:center;padding:30px 0}
+
+/* Keyword bars */
+.kw-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.kw-label{font-size:12.5px;color:var(--text);width:110px;flex-shrink:0;text-transform:capitalize;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kw-bar-track{flex:1;height:8px;background:var(--border-light);border-radius:4px;overflow:hidden}
+.kw-bar-fill{height:100%;background:var(--indigo);border-radius:4px}
+.kw-count{font-size:12px;color:var(--text-subtle);width:24px;text-align:right;flex-shrink:0}
+
+/* Recent messages */
+.msg-item{
+  padding:12px 0;border-bottom:1px solid var(--border-light);
+}
+.msg-item:last-child{border-bottom:none}
+.msg-item-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:4px}
+.msg-item-user{font-size:12px;font-weight:600;color:var(--indigo)}
+.msg-item-time{font-size:11px;color:var(--text-subtle)}
+.msg-item-text{font-size:13px;color:var(--text);line-height:1.5}
+.msg-item-reply{font-size:12.5px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+
+.loading, .error-msg{
+  text-align:center;padding:60px 20px;color:var(--text-muted);font-size:14px;
+}
+.error-msg{color:var(--red)}
+.refresh-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;background:var(--navy);color:#fff;border:none;
+  border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:background .12s;
+}
+.refresh-btn:hover{background:#2D2D4E}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="dash-header">
+    <div class="dash-title-group">
+      <div class="dash-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="dash-title">
+        <h1>Usage Analytics</h1>
+        <p>Innie — Internee.pk Assistant</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="refresh-btn" onclick="loadStats()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Refresh
+      </button>
+      <a class="back-link" href="/">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to chat
+      </a>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="loading">Loading analytics…</div>
+  </div>
+</div>
+
+<script>
+async function loadStats() {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="loading">Loading analytics…</div>';
+
+  let res, data;
+  try {
+    res  = await fetch('/api/stats', { credentials: 'same-origin' });
+    data = await res.json();
+  } catch (e) {
+    content.innerHTML = '<div class="error-msg">Unable to connect to the server.</div>';
+    return;
+  }
+
+  if (res.status === 401) {
+    window.location.href = '/';
+    return;
+  }
+  if (res.status === 403) {
+    content.innerHTML = '<div class="error-msg">Admin access required to view this page.</div>';
+    return;
+  }
+  if (!res.ok) {
+    content.innerHTML = '<div class="error-msg">' + (data.error || 'Something went wrong loading analytics.') + '</div>';
+    return;
+  }
+
+  render(data);
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render(data) {
+  const content = document.getElementById('content');
+
+  const kwMax = Math.max(1, ...(data.top_keywords || []).map(k => k[1]));
+  const kwHtml = (data.top_keywords && data.top_keywords.length)
+    ? data.top_keywords.map(([word, count]) => `
+        <div class="kw-row">
+          <div class="kw-label">${esc(word)}</div>
+          <div class="kw-bar-track"><div class="kw-bar-fill" style="width:${(count / kwMax * 100).toFixed(0)}%"></div></div>
+          <div class="kw-count">${count}</div>
+        </div>`).join('')
+    : '<div class="panel-empty">No conversation data yet.</div>';
+
+  const msgHtml = (data.recent_messages && data.recent_messages.length)
+    ? data.recent_messages.map(m => `
+        <div class="msg-item">
+          <div class="msg-item-top">
+            <span class="msg-item-user">${esc(m.user || 'Unknown')}</span>
+            <span class="msg-item-time">${m.ts ? new Date(m.ts).toLocaleString() : ''}</span>
+          </div>
+          <div class="msg-item-text">${esc(m.message)}</div>
+          ${m.reply ? `<div class="msg-item-reply">${esc(m.reply)}</div>` : ''}
+        </div>`).join('')
+    : '<div class="panel-empty">No messages yet.</div>';
+
+  content.innerHTML = `
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total conversations</div>
+        <div class="kpi-value">${data.total_conversations ?? 0}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Registered users</div>
+        <div class="kpi-value">${data.total_users ?? 0}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Satisfaction</div>
+        <div class="kpi-value ${(data.satisfaction_pct ?? 0) >= 60 ? 'green' : 'red'}">${data.satisfaction_pct ?? 0}%</div>
+        <div class="kpi-sub">${data.thumbs_up ?? 0} up &middot; ${data.thumbs_down ?? 0} down</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Feedback submitted</div>
+        <div class="kpi-value">${data.total_feedback ?? 0}</div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px">
+      <h3>Messages per day — last 14 days</h3>
+      <canvas id="activityChart" height="90"></canvas>
+    </div>
+
+    <div class="panel-grid">
+      <div class="panel">
+        <h3>Top keywords asked about</h3>
+        ${kwHtml}
+      </div>
+      <div class="panel">
+        <h3>Recent messages</h3>
+        ${msgHtml}
+      </div>
+    </div>
+  `;
+
+  drawActivityChart(data.daily_activity || []);
+}
+
+let activityChartInstance = null;
+function drawActivityChart(series) {
+  const ctx = document.getElementById('activityChart');
+  if (!ctx) return;
+  const labels = series.map(d => new Date(d.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
+  const counts = series.map(d => d.count);
+
+  if (activityChartInstance) activityChartInstance.destroy();
+  activityChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Messages',
+        data: counts,
+        backgroundColor: '#6366F1',
+        borderRadius: 4,
+        maxBarThickness: 28,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#F0EFEC' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+loadStats();
+</script>
+</body>
+</html>
