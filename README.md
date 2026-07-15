@@ -127,8 +127,6 @@ with app.app_context():
 ### Admin Dashboard
 ![Admin Dashboard](ui_screenshots/11_admin_dashboard.png)
 
-```
-```
 ##  Tech Stack
 
 | Tool | Purpose |
