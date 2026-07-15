@@ -2,6 +2,7 @@
 ### Internee.pk AI Assistant | Built with Flask + Groq/OpenAI
 
 ---
+Innie is an AI-powered chatbot assistant built for Internee.pk interns, providing instant 24/7 support for tasks, certificates, policies, and deadlines. Features include user authentication, conversation history, voice input, file attachments, and an admin analytics dashboard. Powered by Flask, Groq API (LLaMA 3.3 70B), and SQLite.
 
 ## ✨ Features
 
@@ -31,7 +32,10 @@
 - **Admin Usage Analytics Dashboard** — `/dashboard`, restricted to admin accounts (the first person to sign up becomes admin automatically). Shows total conversations, registered users, satisfaction %, most-asked keywords, a daily message volume chart, and a recent-messages feed.
 
 ---
+### Login Page
+![Login Page](ui_screenshots/01_login.png)
 
+---
 ## 🚀 Setup Instructions
 
 ### Step 1: Install Python dependencies
@@ -96,7 +100,10 @@ Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
   "answer": "Your answer here."
 }
 ```
+### Chat with Typing Indicator
+![Chat with Typing Indicator](ui_screenshots/04_chat_typing_indicator.png)
 
+```
 ### Change the AI model
 In `app.py`, find `model="llama-3.3-70b-versatile"` (Groq) or `model="gpt-3.5-turbo"` (OpenAI) and swap for a different model.
 
@@ -112,7 +119,8 @@ with app.app_context():
     u.is_admin = True
     db.session.commit()"
 ```
-
+### Admin Dashboard
+![Admin Dashboard](ui_screenshots/11_admin_dashboard.png)
 ---
 
 ## 🛠️ Tech Stack
