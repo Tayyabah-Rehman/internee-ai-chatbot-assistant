@@ -77,7 +77,9 @@ Sign up for an account — the **first account created automatically becomes adm
 ![Chat with Typing Indicator](ui_screenshots/04_chat_typing_indicator.png)
 
 ```
-## 📁 Project Structure
+
+
+📁 Project Structure
 ```
 intern-chatbot/
 ├── app.py                  # Flask server, auth, chat, analytics, conversation APIs
@@ -96,7 +98,7 @@ intern-chatbot/
 
 ---
 
-## ⚙️ Customization
+Customization
 
 ### Add more FAQs
 Edit `data/knowledge_base.json` and add entries to the `"faqs"` array:
@@ -125,7 +127,7 @@ with app.app_context():
 ![Admin Dashboard](ui_screenshots/11_admin_dashboard.png)
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 | Tool | Purpose |
 |------|---------|
 | Flask | Python web framework |
