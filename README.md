@@ -76,10 +76,10 @@ Sign up for an account — the **first account created automatically becomes adm
 ### Chat with Typing Indicator
 ![Chat with Typing Indicator](ui_screenshots/04_chat_typing_indicator.png)
 
+
 ```
-
-
-📁 Project Structure
+```
+### Project Structure
 ```
 intern-chatbot/
 ├── app.py                  # Flask server, auth, chat, analytics, conversation APIs
